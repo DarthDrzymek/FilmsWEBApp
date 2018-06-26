@@ -15,16 +15,18 @@
   </head>
   <body>
   <%String message=(String) request.getAttribute("Message") ;%>
-  <% if (message!=null) {%>
+  <%if (message!=null){%>
+  <% if (message.equals("added")) {%>
   <div class="alert alert-success alert-dismissible fade in">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> You added a FILM!
   </div>
-    <%}else{%>
+    <%}else if(message.equals("error")){%>
   <div class="alert alert-danger">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Error!</strong>Something went wrong!
   </div>
+  <%}%>
   <%}%>
 
   <div align="CENTER">
