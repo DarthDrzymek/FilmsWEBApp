@@ -14,8 +14,6 @@ public class SearchFilm extends HttpServlet {
         String searchSelection = request.getParameter("searchParam").toString();
         System.out.println(searchSelection);
         System.out.println(searchField);
-        String jobCat = request.getParameter("jobCat");
-        System.out.println(jobCat);
     }
 
 }

@@ -10,10 +10,16 @@ import java.io.IOException;
 @WebServlet("/AddFilm")
 public class AddFilm extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Posted add");
+        String title = request.getParameter("title");
+        String year = request.getParameter("year");
+        String director = request.getParameter("director");
+        String desc = request.getParameter("desc");
+        String img = request.getParameter("img");
+        System.out.println(title+year+director+desc+img);
+        String message=null;
+        request.setAttribute("Message",message);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
 }
