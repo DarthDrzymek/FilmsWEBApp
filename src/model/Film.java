@@ -3,16 +3,15 @@ package model;
 public class Film {
     private int id;
     private String name;
-    private String director;
+    private int director;
     private String description;
-    private int year;
+    private String year;
     private String img;
 
     public Film() {
     }
 
-    public Film(int id, String name, String director, String description, int year, String img) {
-        this.id = id;
+    public Film( String name, int director, String description, String year, String img) {
         this.name = name;
         this.director = director;
         this.description = description;
@@ -36,11 +35,11 @@ public class Film {
         this.name = name;
     }
 
-    public String getDirector() {
+    public int getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(int director) {
         this.director = director;
     }
 
@@ -52,11 +51,11 @@ public class Film {
         this.description = description;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -66,5 +65,17 @@ public class Film {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", director=" + director +
+                ", description='" + description + '\'' +
+                ", year='" + year + '\'' +
+                ", img='" + img + '\'' +
+                '}';
     }
 }
