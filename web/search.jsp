@@ -20,7 +20,7 @@
             </div>
         <div class="col-auto my-1">
             <select  name="searchParam">
-                <option value="Title">Title</option>
+                <option value="Name">Title</option>
                 <option value="Director">Director</option>
                 <option value="Year">Year</option>
             </select>

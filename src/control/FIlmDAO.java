@@ -40,7 +40,7 @@ public class FIlmDAO {
         this.connection = DriverManager.getConnection(url, username, pass);
     }
 
-    public  String saveFilm(Film film) {
+    public  String saveFilm(Film film) throws SQLException {
         String SQL = "insert into FILMS(NAME,YEAR,DESCRIPTION,DIRECTOR,IMG) values (?,?,?,?,?)";
         try {
             PreparedStatement prepStmt = connection.prepareStatement(SQL);
@@ -54,9 +54,11 @@ public class FIlmDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }finally {
+            connection.close();
         }
     }
-    public ArrayList<Film> readByTitle(String s) {
+    public ArrayList<Film> readByTitle(String s) throws SQLException {
         String sql = "select * from FILMS where name=?";
         ArrayList<Film> films = new ArrayList<>();
         try {
@@ -77,10 +79,12 @@ public class FIlmDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }finally {
+            connection.close();
         }
     }
 
-    public ArrayList<Film> readByDirector(int s) {
+    public ArrayList<Film> readByDirector(int s) throws SQLException {
         String sql = "select * from FILMS where DIRECTOR=?";
         ArrayList<Film> films = new ArrayList<>();
         try {
@@ -101,9 +105,11 @@ public class FIlmDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }finally {
+            connection.close();
         }
     }
-    public ArrayList<Film> readByYear(String s) {
+    public ArrayList<Film> readByYear(String s) throws SQLException {
         String sql = "select * from FILMS where YEAR=?";
         ArrayList<Film> films = new ArrayList<>();
         try {
@@ -124,6 +130,8 @@ public class FIlmDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }finally {
+            connection.close();
         }
     }
 }
