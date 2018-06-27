@@ -134,4 +134,28 @@ public class FIlmDAO {
             connection.close();
         }
     }
+
+    public Film readByID(int s) throws SQLException {
+        String sql = "select * from FILMS where idFILM=?";
+        Film film=new Film();
+        try {
+            PreparedStatement prepStmt = connection.prepareStatement(sql);
+            prepStmt.setInt(1,s);
+            ResultSet result = prepStmt.executeQuery();
+            while (result.next()) {
+                film.setId(result.getInt("idFILM"));
+                film.setName(result.getString("name"));
+                film.setYear(result.getString("year"));
+                film.setDirector(result.getInt("director"));
+                film.setDescription(result.getString("description"));
+                film.setImg(result.getString("img"));
+            }
+            return film;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }finally {
+            connection.close();
+        }
+    }
 }

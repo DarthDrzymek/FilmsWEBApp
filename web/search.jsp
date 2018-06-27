@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div align="CENTER">
 <h1>Searching page</h1>
-<form id="formSearch" method="post" action="SearchFilm">
+<form id="formSearch" method="post" action="SearchFilm" >
     <div class="form-row align-items-center">
         <div class="col-auto my-1">
                 <input type="text" name="searchField">
@@ -30,5 +31,6 @@
         </div>
     </div>
 </form>
+</div>
 </body>
 </html>
