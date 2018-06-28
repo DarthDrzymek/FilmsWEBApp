@@ -3,7 +3,7 @@ package model;
 public class Film {
     private int id;
     private String name;
-    private int director;
+    private Integer director;
     private String description;
     private String year;
     private String img;
@@ -11,7 +11,7 @@ public class Film {
     public Film() {
     }
 
-    public Film( String name, int director, String description, String year, String img) {
+    public Film( String name,   Integer director, String description, String year, String img) {
         this.name = name;
         this.director = director;
         this.description = description;
@@ -35,11 +35,11 @@ public class Film {
         this.name = name;
     }
 
-    public int getDirector() {
+    public Integer getDirector() {
         return director;
     }
 
-    public void setDirector(int director) {
+    public void setDirector(Integer director) {
         this.director = director;
     }
 

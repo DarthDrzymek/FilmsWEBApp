@@ -2,6 +2,10 @@ package control;
 
 import model.Film;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -29,15 +33,20 @@ public class FIlmDAO {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (NamingException e) {
+                e.printStackTrace();
             }
 
     }
-    public FIlmDAO() throws ClassNotFoundException, SQLException {
-        Class.forName("org.mariadb.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/films";
-        String username = "admin";
-        String pass = "pass123";
-        this.connection = DriverManager.getConnection(url, username, pass);
+    public FIlmDAO() throws ClassNotFoundException, SQLException, NamingException {
+//        Class.forName("org.mariadb.jdbc.Driver");
+//        String url = "jdbc:mysql://localhost:3306/films";
+//        String username = "admin";
+//        String pass = "pass123";
+//        this.connection = DriverManager.getConnection(url, username, pass);
+
+        this.connection=ConnectionProvider.getConnection();
+
     }
 
     public  String saveFilm(Film film) throws SQLException {

@@ -17,7 +17,7 @@ public class AddFilm extends HttpServlet {
         try {
         String title = request.getParameter("title");
         String year = request.getParameter("year");
-        int director = Integer.valueOf(request.getParameter("director"));
+        Integer director = Integer.valueOf(request.getParameter("director"));
         String desc = request.getParameter("desc");
         String img = request.getParameter("img");
         Film film = new Film(title,director,desc,year,img);

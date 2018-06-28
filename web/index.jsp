@@ -12,22 +12,26 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
   </head>
   <body>
-  <%String message=(String) request.getAttribute("Message") ;%>
-  <%if (message!=null){%>
-  <% if (message.equals("added")) {%>
-  <div class="alert alert-success alert-dismissible fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> You added a FILM!
-  </div>
-    <%}else if(message.equals("error")){%>
-  <div class="alert alert-danger">
+
+  <c:set value="added" var="messageAdded"/>
+  <c:set value="error" var="messageError"/>
+  <c:if test="${requestScope.message!=null}">
+      <c:if test="${message==messageError}">
+      <div class="alert alert-success alert-dismissible fade in">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> You added a FILM!
+      </div>
+    </c:if>
+  <c:if test="${message== messageError}">
+    <div class="alert alert-danger">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Error!</strong>Something went wrong!
-  </div>
-  <%}%>
-  <%}%>
+    </div>
+  </c:if>
+  </c:if>
 
   <div align="CENTER">
   <h1>Select what you'd like to do</h1><br>
